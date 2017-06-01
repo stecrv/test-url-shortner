@@ -7,6 +7,7 @@ We'd like you to create a URL shortening service.
 e.g.
 ```
 curl localhost:4000 -XPOST -d '{ "url": "http://www.farmdrop.com" }'
+ curl localhost:4000 -XPOST -d '{ "url": "http://www.farmdrop.com" }' -H "Content-Type: application/json"
 { "short_url": "/abc123", "url": "http://www.farmdrop.com" }
 ```
 
