@@ -9,7 +9,6 @@ var shortner = {
      * @returns {boolean} added to list of URL
      */
     addURL: function (url) {
-        console.log('addURL', url);
         if (!url) return false;
         var el = {short_url: this.createShortUrl(), url: null};
         var urlObject = !(/[^,:{}\[\]0-9.\-+Eaeflnr-u \n\r\t]/.test(
@@ -17,6 +16,7 @@ var shortner = {
             eval('(' + url + ')');
         el.url = urlObject ? urlObject.url : url;
         this.data.push(el);
+        return el;
     },
     /**
      * get the full URL for a given short URL
@@ -24,9 +24,10 @@ var shortner = {
      * @returns {*}
      */
     getURL: function (key) {
-        for (var el in this.data) {
-            if (el.short_url == key) {
-                return el.url;
+        for (var i =0; i<this.data.length; i++) {
+            var d = this.data[i];
+            if (d.short_url == key) {
+                return d.url;
             }
         }
         return false
