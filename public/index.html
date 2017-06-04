@@ -3,8 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>URL shortner</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+    <link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+
+
+    <script type="text/javascript" src="index.js"></script>
+    <style>
+        #container{
+            width: 500px;
+            margin: 20px;
+        }
+    </style>
 </head>
 <body>
-
+    <div id="container">
+        <label for="link">please add a link</label>
+        <input id="link" type="text" placeholder="https://..."/>
+        <button id="send" disabled >Send</button>
+        <div id="messagge"> </div>
+        <ul id="linksList"></ul>
+    </div>
 </body>
 </html>

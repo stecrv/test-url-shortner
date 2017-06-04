@@ -9,6 +9,7 @@ var shortner = require("./shortner");
 
 // POST, create a resource
 function defaultContentTypeMiddleware (req, res, next) {
+    //console.log('req',req.headers, req.params, req.body);
     req.headers['content-type'] = 'application/json';
     //req.headers['content-type'] = req.headers['content-type'] || 'application/json';
     next();
@@ -20,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.post('/',function(req,res){
-    //console.log('gepost',req.headers, req.params, req.body);
+    //console.log('post',req.headers, req.params, req.body);
     res.send(shortner.addURL(req.body.url));
 });
 //END POST
