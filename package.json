@@ -4,11 +4,19 @@
   "private": true,
   "scripts": {
     "start": "node app.js",
-    "startdev": "supervisor app.js"
+    "startdev": "supervisor app.js",
+    "test": "mocha ./tests/"
+  },
+  "devDependencies": {
+    "chai": "*",
+    "mocha": "*"
   },
   "dependencies": {
     "body-parser": "^1.17.2",
+    "chai": "^4.0.1",
     "express": "~4.15.2",
-    "path": "^0.12.7"
+    "mocha": "^3.4.2",
+    "path": "^0.12.7",
+    "request": "^2.81.0"
   }
 }

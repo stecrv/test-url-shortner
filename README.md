@@ -1,3 +1,27 @@
+# Runnig/Testing the code
+
+## Install
+
+* Open terminal,
+* Go to root folder
+* `npm install`
+
+## Run
+
+* Open terminal
+* `npm run start` or `node app.js`
+
+## Test
+
+* Open terminal
+* `npm run test` or  `mocha ./tests/`
+
+## Front end page
+
+* Run the application
+* Oper browser with URL "http://localhot:4000/index"
+
+
 # Url Shortener Code Test
 
 We'd like you to create a URL shortening service.
@@ -5,9 +29,9 @@ We'd like you to create a URL shortening service.
   body, which returns a short URL.
 
 e.g.
+
 ```
 curl localhost:4000 -XPOST -d '{ "url": "http://www.farmdrop.com" }'
- curl localhost:4000 -XPOST -d '{ "url": "http://www.farmdrop.com" }' -H "Content-Type: application/json"
 { "short_url": "/abc123", "url": "http://www.farmdrop.com" }
 ```
 
@@ -16,6 +40,7 @@ curl localhost:4000 -XPOST -d '{ "url": "http://www.farmdrop.com" }'
   to the POSTed URL.
 
 e.g.
+
 ```
 curl -v localhost:4000/abc123
 ...

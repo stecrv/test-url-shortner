@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.post('/',function(req,res){
-    console.log('gepost',req.headers, req.params, req.body);
+    //console.log('gepost',req.headers, req.params, req.body);
     res.send(shortner.addURL(req.body.url));
 });
 //END POST
@@ -28,11 +28,11 @@ app.post('/',function(req,res){
 // GET, get the resource and redirect
 app.use(express.static(__dirname + '/public'));
 app.get('/*',function(req,res){
-    console.log('get',req.headers, req.params, req.body);
-
+    //console.log('get',req.headers, req.params, req.body);
 
     // test data
-    shortner.data.push({"short_url":"/91eklx","url":"http://www.farmdrop.com"})
+    // shortner.data.push({"short_url":"/91eklx","url":"http://www.farmdrop.com"});
+
     if(req.params && req.params[0] ){
         if(req.params[0]=='index'){ //Front end page
             res.sendFile(path.join(__dirname+'/public/index.html'));
