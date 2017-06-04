@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var shortner = require("./shortner");
 
 
+// POST, create a resource
 function defaultContentTypeMiddleware (req, res, next) {
     req.headers['content-type'] = 'application/json';
     //req.headers['content-type'] = req.headers['content-type'] || 'application/json';
@@ -22,28 +23,31 @@ app.post('/',function(req,res){
     console.log('gepost',req.headers, req.params, req.body);
     res.send(shortner.addURL(req.body.url));
 });
+//END POST
 
+// GET, get the resource and redirect
+app.use(express.static(__dirname + '/public'));
 app.get('/*',function(req,res){
     console.log('get',req.headers, req.params, req.body);
 
+
     // test data
-    // shortner.data.push({"short_url":"/91eklx","url":"http://www.farmdrop.com"})
+    shortner.data.push({"short_url":"/91eklx","url":"http://www.farmdrop.com"})
     if(req.params && req.params[0] ){
-        var l = shortner.getURL("/" + req.params[0].toString() );
-        if(l) {
+        if(req.params[0]=='index'){ //Front end page
+            res.sendFile(path.join(__dirname+'/public/index.html'));
+        }else if(l = shortner.getURL("/" + req.params[0].toString() )) {
             res.redirect(301, l);
         }else{
-            //404
+            res.status(404);
+            res.send('page not found (1)');
         }
+    }else {
+        res.status(404);
+        res.send('page not found (2)');
     }
-    res.send('send a resource');
 });
-
-app.use(express.static(__dirname + '/public'));
-
-app.get('/index',function(req,res){
-    res.sendFile(path.join(__dirname+'/public/_index.html'));
-});
+//END GET
 
 app.listen(4000);
 
